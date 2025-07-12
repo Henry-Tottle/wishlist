@@ -27,6 +27,10 @@
             {% else %}
             item obtained
             {% endif %}
+            <form action="/delete" method="POST" style="display: inline;">
+                <input type="hidden" name="item_id" value="{{item.id}}">
+                <button type="submit">Delete</button>
+            </form>
         </li>
         {% endfor %}
     </ul>

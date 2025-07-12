@@ -40,6 +40,15 @@ def markObtained():
 	connection.close()
 	return redirect('/wishlist')
 
+@app.route('/delete', methods=['POST'])
+def delete():
+	item_id = request.form['item_id']
+	connection = get_db_connection()
+	connection.execute('DELETE FROM items WHERE id =?', (item_id))
+	connection.commit()
+	connection.close()
+	return redirect('/wishlist')
+
 
 
 if __name__ == "__main__":
