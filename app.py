@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash
 import sqlite3
 
 app = Flask(__name__)
+app.secret_key = 'secret_key_for_flash_message'
 
 def get_db_connection():
 	connection = sqlite3.connect('wishlist.db')
@@ -40,13 +41,42 @@ def markObtained():
 	connection.close()
 	return redirect('/wishlist')
 
-@app.route('/delete', methods=['POST'])
-def delete():
-	item_id = request.form['item_id']
+@app.route('/edit/<int:id>', methods=['GET'])
+def editForm(id):
+
 	connection = get_db_connection()
-	connection.execute('DELETE FROM items WHERE id =?', (item_id))
+	item = connection.execute('SELECT * FROM items WHERE id = ?', (id,)).fetchone()
+	connection.close()
+	return render_template('editForm.html', item=item)
+
+@app.route('/edit/<int:id>', methods=["POST"])
+def edit(id):
+	itemName = request.form['itemName']
+	source = request.form['source']
+	category = request.form['category']
+	connection = get_db_connection()
+	connection.execute('UPDATE items SET itemName = ?, source = ?, category = ? WHERE id = ?', (itemName, source, category, id))
 	connection.commit()
 	connection.close()
+	flash('Item edited.')
+	return redirect('/wishlist')
+	
+	
+
+@app.route('/delete/<int:id>', methods=['GET'])
+def deleteForm(id):
+	connection = get_db_connection()
+	item = connection.execute('SELECT * FROM items WHERE id = ?', (id,)).fetchone()
+	connection.close()
+	return render_template('deleteForm.html', item=item)
+
+@app.route('/delete/<int:id>', methods=['POST'])
+def delete(id):
+	connection = get_db_connection()
+	connection.execute('DELETE FROM items WHERE id =?', (id,))
+	connection.commit()
+	connection.close()
+	flash('Item deleted.')
 	return redirect('/wishlist')
 
 

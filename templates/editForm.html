@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wishlist - Edit Form</title>
+</head>
+<body>
+    <form action="/edit/{{item.id}}" method="POST" style="display: inline;">
+        <input type="text" name="itemName" value="{{item.itemName}}">
+        --
+        <input type="text" name="source" value="{{item.source}}">
+        --
+        <input type="text" name="category" value="{{item.category}}">
+        <button type="submit">Save Edit</button>
+    </form>
+
+    <form action="/wishlist">
+        <button type="submit">Go Back</button>
+    </form>
+</body>

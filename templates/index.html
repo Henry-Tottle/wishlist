@@ -7,7 +7,15 @@
 <body>
     <h1>Wishlist</h1>
     <h2>Things you may not need, but certainly want:</h2>
-
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flashes">
+                    {% for message in messages %}
+                        <h4>{{message}}</h4>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
     <form action="/add" method="POST">
         <input name="itemName" placeholder="What do you want?" required>
         <input name="source" placeholder="Where do you get it?" required>
@@ -27,9 +35,13 @@
             {% else %}
             item obtained
             {% endif %}
-            <form action="/delete" method="POST" style="display: inline;">
+            <form action="/delete/{{item.id}}" method="GET" style="display: inline;">
                 <input type="hidden" name="item_id" value="{{item.id}}">
                 <button type="submit">Delete</button>
+            </form>
+            <form action="/edit/{{item.id}}" method="GET" style="display: inline;">
+                <input type="hidden" name="item_id" value="{{item.id}}">
+                <button type="submit">Edit</button>
             </form>
         </li>
         {% endfor %}
