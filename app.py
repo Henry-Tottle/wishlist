@@ -13,7 +13,7 @@ def get_db_connection():
 
 @app.route("/")
 def home():
-    return "Welcome to your wishlist!"
+    return redirect('/wishlist')
 
 @app.route("/wishlist")
 def index():
