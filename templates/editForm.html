@@ -8,11 +8,15 @@
   <link href="/static/styles.css" rel="stylesheet"/>
 </head>
 <body>
-    <form action="/edit/{{item[0]}}" method="POST" style="display: inline;">
+    <main>
+        
+
+        
+    <form class="editItemForm" action="/edit/{{item[0]}}" method="POST">
         <input type="text" name="itemName" value="{{item[1]}}">
-        --
+        
         <input type="text" name="source" value="{{item[2]}}">
-        --
+        
         <input type="text" name="category" value="{{item[3]}}">
         <button type="submit">Save Edit</button>
     </form>
@@ -20,4 +24,5 @@
     <form action="/wishlist">
         <button type="submit">Go Back</button>
     </form>
+    </main>
 </body>

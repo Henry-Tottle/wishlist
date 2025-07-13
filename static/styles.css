@@ -47,17 +47,24 @@ button {
 
 
 button {
-  background-color: #f0f0f0;
+  background-color: rgb(40, 131, 230);
   cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
   transition: background-color 0.3s;
 }
 
-button:hover {
-  background-color: #ddd;
+button:active {
+    border: solid 1px blue;
+  background-color: rgb(3, 109, 222);
 }
 
 .addItemForm {
   margin-bottom: 1.5rem;
+}
+
+.addItemForm {
+    display: flex;
+    flex-direction: column;
 }
 
 .flashes h4 {
@@ -111,4 +118,12 @@ li:hover {
 
 i.bx {
   font-size: 1.2rem;
+}
+
+@media screen and (min-width:600px) {
+
+    button:active {
+    border: solid 1px blue;
+  background-color: rgb(3, 109, 222);
+}
 }
