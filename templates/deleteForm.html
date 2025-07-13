@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <title>Wishlist - Delete Form</title>
+  <link href="/static/styles.css" rel="stylesheet"/>
 </head>
 <body>
     <h3>Are you sure you want to delete:</h3>
     <ul>
-        <li>{{item.itemName}}</li>
+        <li>{{item[1]}}</li>
     </ul>
-    <form action="/delete/{{item.id}}" method="POST">
+    <form action="/delete/{{item[0]}}" method="POST">
         <button type="submit">Yes</button>
     </form>
     <form action="/wishlist">

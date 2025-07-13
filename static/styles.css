@@ -1,0 +1,114 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(to right, #e3e0d4, #ffffff);
+  font-family: 'Segoe UI', sans-serif;
+  color: #212121;
+}
+
+main {
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 500px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(33, 33, 33, 0.2);
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input[type=text],
+input[type=submit],
+button {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 1rem;
+}
+
+
+
+button {
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+.addItemForm {
+  margin-bottom: 1.5rem;
+}
+
+.flashes h4 {
+  color: green;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+    margin-bottom: 1rem;
+    max-height: 3.5rem;
+    background: #fff;
+    padding: 0.75rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: max-height 1s ease;
+    cursor: pointer;
+}
+
+li:hover {
+    max-height: 500px;
+}
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.listItem span {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.actions form {
+  margin: 0;
+}
+
+i.bx {
+  font-size: 1.2rem;
+}

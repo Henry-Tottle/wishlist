@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <title>Wishlist - Edit Form</title>
+  <link href="/static/styles.css" rel="stylesheet"/>
 </head>
 <body>
-    <form action="/edit/{{item.id}}" method="POST" style="display: inline;">
-        <input type="text" name="itemName" value="{{item.itemName}}">
+    <form action="/edit/{{item[0]}}" method="POST" style="display: inline;">
+        <input type="text" name="itemName" value="{{item[1]}}">
         --
-        <input type="text" name="source" value="{{item.source}}">
+        <input type="text" name="source" value="{{item[2]}}">
         --
-        <input type="text" name="category" value="{{item.category}}">
+        <input type="text" name="category" value="{{item[3]}}">
         <button type="submit">Save Edit</button>
     </form>
 
