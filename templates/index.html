@@ -33,7 +33,7 @@
     <ul>
         {% for item in items %}
         <li>
-            <div class="listItem">
+            <div class="listItem {{ 'obtained' if item[4] else '' }}">
 
             <h3>{{ item[1] }}</h3> 
             <h4>Where from: {{item[2]}}</h4>
